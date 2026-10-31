@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mystery Shop — Supermarket Adventure</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div><span class="eyebrow">MYSTERY SHOP · THE SECRET OF HIDDEN PRICES</span><h1>Supermarket Adventure</h1></div>
+      <div class="stats">
+        <span class="prog">📋 <b id="progressText">0/3</b> misi</span>
+        <span>🪙 <b id="coins">0</b></span>
+        <span>⭐ <b id="score">0</b> poin</span>
+      </div>
+    </header>
+    <section class="game-layout">
+      <div class="canvas-wrap">
+        <canvas id="game" width="960" height="600" aria-label="Peta supermarket Mystery Shop"></canvas>
+        <div class="controls">WASD / ↑ ↓ ← → untuk bergerak <b>•</b> E untuk interaksi <b>•</b> Esc untuk menutup soal</div>
+      </div>
+      <aside class="side">
+        <h2>📋 Misi Miko</h2>
+        <p id="mission">Jelajahi supermarket dan mulai dari Stationery Shop.</p>
+        <ul class="missions" id="missionList">
+          <li id="ml-alat">● Stationery Shop</li>
+          <li id="ml-buah" class="locked">🔒 Fruit Shop</li>
+          <li id="ml-kasir" class="locked">🔒 Checkout Counter</li>
+        </ul>
+        <div class="nearby" id="nearby">Cari toko yang bisa dikunjungi.</div>
+        <div class="dialogue" id="dialogue">“Halo! Aku Miko. Ayo cari label harga yang hilang!”</div>
+        <button id="closeDialog" type="button">Mengerti</button>
+        <div class="tip"><b>Tips:</b> Dekati toko, lalu tekan <kbd>E</kbd>. Selesaikan toko secara berurutan.</div>
+      </aside>
+    </section>
+    <footer>Mystery Shop • Belajar SPLDV jadi lebih seru!</footer>
+  </main>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button id="modalClose" class="close" type="button" aria-label="Tutup">✕</button>
+      <div id="panes"></div>
+    </div>
+  </div>
+
+  <div id="complete" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card complete">
+      <div class="trophy">🏆</div>
+      <span class="eyebrow">MISSION ACCOMPLISHED</span>
+      <h2>Kerja bagus, semuanya!</h2>
+      <p>Kita berhasil membantu Miko menemukan semua harga dan menyelesaikan transaksi.</p>
+      <div class="final-score"><small>TOTAL SKOR KELAS</small><strong id="finalScore">0</strong><span>POIN</span></div>
+      <div class="learned">
+        <p>✓ Mengubah masalah sehari-hari menjadi model SPLDV.</p>
+        <p>✓ Menggambar dua persamaan linear menggunakan GeoGebra.</p>
+        <p>✓ Menentukan solusi melalui titik potong dua garis.</p>
+        <p>✓ Menggunakan solusi untuk menyelesaikan masalah kontekstual.</p>
+      </div>
+      <button id="restartBtn" type="button">Main lagi ↻</button>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="game.js"></script>
+</body>
+</html>
